@@ -11,10 +11,20 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import sys
+import os
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Путь к корневой директории проекта для plugins
+import os
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+
+# Добавляем путь к plugins в sys.path
+import sys
+sys.path.insert(0, os.path.join(PROJECT_ROOT, 'plugins'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/

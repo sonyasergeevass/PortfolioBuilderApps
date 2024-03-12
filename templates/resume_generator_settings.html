@@ -1,0 +1,25 @@
+{% block content %}
+  <h1>Resume Generator Plugin</h1>
+
+  <h2>Plugin Info</h2>
+  <p>Name: {{ plugin_info.name }}</p>
+  <p>Version: {{ plugin_info.version }}</p>
+  <p>Author: {{ plugin_info.author }}</p>
+    <p> {{ resume_pdf }}</p>
+
+    <h2>Save Resume PDF</h2>
+    <form method="post" action="{% url 'create_resume' %}">
+    {% csrf_token %}
+    <lable for="pdf_name"> Enter PDF Name: </lable>
+    <input type="text" id="pdf_name" name="pdf_name" required>
+    <button type="submit">Save PDF</button>
+    </form>
+{#  <h2>Settings</h2>#}
+{#  <ul>#}
+{#    {% for setting in settings %}#}
+{#      <li>{{ setting.setting_name }}: {{ setting.setting_value }}</li>#}
+{#    {% endfor %}#}
+{#  </ul>#}
+
+  <!-- Здесь можно добавить форму или другие элементы для редактирования настроек -->
+{% endblock %}

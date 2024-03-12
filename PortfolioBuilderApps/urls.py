@@ -16,7 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from pbuilder import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("resumepdf/", views.resume_generator_settings, name='resume_generator_settings'),
+    path("createresume/", views.create_resume, name='create_resume'),
+    path("gitrepos/", views.github_repositories, name='github_repositories'),
+
 ]
