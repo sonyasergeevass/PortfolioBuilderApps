@@ -23,5 +23,6 @@ urlpatterns = [
     path("resumepdf/", views.resume_generator_settings, name='resume_generator_settings'),
     path("createresume/", views.create_resume, name='create_resume'),
     path("gitrepos/", views.github_repositories, name='github_repositories'),
+    path('chatbot/', views.gpt3_response, name='gpt3_response'),
 
 ]

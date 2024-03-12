@@ -1,0 +1,28 @@
+{% block content %}
+  <h1>ChatBot Response</h1>
+
+  <h2>Plugin Info</h2>
+  <p>Name: {{ plugin_info.name }}</p>
+  <p>Version: {{ plugin_info.version }}</p>
+  <p>Author: {{ plugin_info.author }}</p>
+
+    <form method="post">
+    {% csrf_token %}
+    <lable for="question"> Ask a question: </lable>
+    <input type="text" id="question" name="question" required>
+    <button type="submit">Ask</button>
+    </form>
+
+    {% if answer %}
+        <p>Answer: {{ answer }}</p>
+    {% endif %}
+
+{#  <h2>Settings</h2>#}
+{#  <ul>#}
+{#    {% for setting in settings %}#}
+{#      <li>{{ setting.setting_name }}: {{ setting.setting_value }}</li>#}
+{#    {% endfor %}#}
+{#  </ul>#}
+
+  <!-- Здесь можно добавить форму или другие элементы для редактирования настроек -->
+{% endblock %}

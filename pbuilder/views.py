@@ -72,4 +72,23 @@ def github_repositories(request):
             context['repositories'] = repositories
             return render(request, 'github_repositories.html', context)
     else:
-        return render(request, 'github_repositories.html', context)
+        return render(request, 'github_repositories.html')
+
+def gpt3_response(request):
+    if request.method == "POST":
+        question = request.POST.get('question')
+        module = None
+        for plugin in plugin_modules:
+            if getattr(plugin, '__plugin_name__',
+                       None) == "GPT3.5 Response":
+                module = plugin
+                break
+        plugin_info = get_plugin_info(module)
+        context = {'plugin_info': plugin_info}
+        # Используем функцию из модуля
+        if hasattr(module, 'get_gpt3_response'):
+            answer = module.get_gpt3_response(question)
+            context['answer'] = answer
+            return render(request, 'gpt3_response.html', context)
+    else:
+        return render(request, 'gpt3_response.html')
