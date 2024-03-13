@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Выбор файла</title>
+</head>
+<body>
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="plugin_file">
+    <button type="submit">Загрузить модуль</button>
+    </form>
+    <p>Result: {{ result }}</p>
+    <h2>Plugin Info</h2>
+      <p>Name: {{ plugin_info.name }}</p>
+      <p>Version: {{ plugin_info.version }}</p>
+      <p>Author: {{ plugin_info.author }}</p>
+</body>
+</html>

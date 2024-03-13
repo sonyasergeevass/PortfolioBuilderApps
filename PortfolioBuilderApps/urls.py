@@ -24,5 +24,7 @@ urlpatterns = [
     path("createresume/", views.create_resume, name='create_resume'),
     path("gitrepos/", views.github_repositories, name='github_repositories'),
     path('chatbot/', views.gpt3_response, name='gpt3_response'),
+    path('dir/', views.dir_response, name='dir_response'),
+    path('all/', views.show_all_plugins, name='show_all_plugins'),
 
 ]
